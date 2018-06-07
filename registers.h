@@ -8,3 +8,4 @@ struct Registers{
 };
 
 struct Registers * init_registers ();
+void free_reg(struct Registers * R);

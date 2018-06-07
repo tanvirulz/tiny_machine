@@ -12,4 +12,4 @@ struct Memory{
 struct Memory * init_memory();
 void put_byte(struct Memory * M, uint16_t dp, uint8_t byte);
 uint8_t get_byte(struct Memory * M, uint16_t dp);
-void clear_mem(struct Memory * M);    
+void free_mem(struct Memory * M);    

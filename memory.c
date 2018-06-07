@@ -33,7 +33,7 @@ uint8_t get_byte(struct Memory * M, uint16_t dp){
     return byte;
 }
 
-void clear_mem(struct Memory * M){
+void free_mem(struct Memory * M){
     int i;
     for (i=0;i<NUM_MEM_BUCKETS;i++){
         if (M->mbl[i]){
