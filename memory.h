@@ -6,7 +6,6 @@
 #define MEM_BUCKET_SIZE 256
 struct Memory{
     uint8_t * mbl [NUM_MEM_BUCKETS];
-
 };
 
 struct Memory * init_memory();

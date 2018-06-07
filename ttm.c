@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "memory.h"
 #include "registers.h"
@@ -6,6 +7,19 @@
 int main(){
     struct Memory * m;
     struct Registers * r;
+    uint16_t * n; 
+    uint8_t * t;
+
+    t = (uint8_t *) malloc(sizeof(uint8_t)*2);
+    
+    
+    t[2] = 0xAB;
+    t[1] = 0xCD;
+    t[0] = 0xEF;
+
+    printf("%x %x\n",(int)t[1],(int)t[0]);
+    n = (uint16_t *) (t+1); 
+    printf("%x ",(int)*n);
     m = init_memory();
     r = init_registers();
     uint16_t dp = 0xffff;
@@ -16,6 +30,7 @@ int main(){
     free_mem(m);
     free_reg(r);
 
+    
     printf("success!\n");
 
 }
