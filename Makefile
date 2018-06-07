@@ -1,2 +1,2 @@
-ttm: memory.c memory.h ttm.c
-	gcc -o run memory.c memory.h ttm.c -I.
+ttm: memory.c ttm.c registers.c 
+	gcc -o run memory.c registers.c ttm.c -I.

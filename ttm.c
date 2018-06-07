@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include "memory.h"
-
+#include "registers.h"
 
 int main(){
     struct Memory * M;
@@ -12,6 +12,8 @@ int main(){
     printf("%d\n",(int)get_byte(M,dp));
     //free memory for no reason
     clear_mem(M);
+
+    
     printf("success!\n");
 
 }
