@@ -4,7 +4,10 @@
 #include "memory.h"
 #include "registers.h"
 #include "processor.h"
-#include "unit_tests.h"
+
+#ifdef TEST_MODE
+    #include "unit_tests.h"
+#endif
 
 int main(){
     struct Memory * m;
@@ -31,8 +34,10 @@ int main(){
     //free memory for no reason
     free_mem(m);
     free_reg(r);
-
-    if(test_processor()) {
-        printf("success!\n");
-    }
+    #ifdef TEST_MODE
+        if(test_processor()) {
+            printf("Unit test success!\n");
+        }
+    #endif
+    printf("success!\n");
 }
