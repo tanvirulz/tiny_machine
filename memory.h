@@ -24,5 +24,6 @@ struct Memory * init_memory();
 void put_byte(struct Memory * M, uint16_t dp, uint8_t byte);
 uint8_t get_byte(struct Memory * M, uint16_t dp);
 void free_mem(struct Memory * M);    
-
+uint16_t get_word(struct Memory * m,uint16_t dp);
+void put_word(struct Memory * m,uint16_t dp,uint16_t word);
 #endif /*MEMORY_H*/

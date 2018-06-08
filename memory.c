@@ -37,6 +37,20 @@ uint8_t get_byte(struct Memory * M, uint16_t dp){
     return byte;
 }
 
+uint16_t get_word(struct Memory * m, uint16_t dp){
+    uint16_t h;
+    h = get_byte(m,dp);
+    h = h | ( (uint16_t)get_byte(m,dp+1)<<8);
+}
+void put_word(struct Memory * m,uint16_t dp,uint16_t word){
+    uint8_t i_bytes[2];
+    i_bytes[0] = word & 0xFF;
+    i_bytes[1] = (word >> 8) & 0xFF;
+    put_byte(m , dp , i_bytes[0] );
+   
+    put_byte(m , dp+1, i_bytes[1] );
+    
+}
 void free_mem(struct Memory * M){
     int i;
     for (i=0;i<NUM_MEM_BUCKETS;i++){
