@@ -18,10 +18,10 @@ int main(){
     t[0] = 0xEF;
 
     printf("%x %x\n",(int)t[1],(int)t[0]);
-    n = (uint16_t *) (t+1); 
+    n = (uint16_t *) (t); 
     printf("%x ",(int)*n);
     m = init_memory();
-    r = init_registers();
+    r = init_registers(16);
     uint16_t dp = 0xffff;
     put_byte(m,dp,42);
     printf("%d\n", (int)m->mbl[0xff][0xff]);
