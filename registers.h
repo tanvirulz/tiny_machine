@@ -1,3 +1,5 @@
+#ifndef REGISTERS_H
+#define REGISTERS_H
 #include <stdlib.h>
 #include <stdint.h>
 
@@ -11,3 +13,5 @@ struct Registers{
 
 struct Registers * init_registers (uint16_t pc);
 void free_reg(struct Registers * R);
+
+#endif /*REGISTERS_H*/

@@ -3,7 +3,7 @@
 
 #include "memory.h"
 #include "registers.h"
-
+#include "processor.h"
 int main(){
     struct Memory * m;
     struct Registers * r;

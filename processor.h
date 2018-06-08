@@ -1,3 +1,5 @@
+#ifndef PROCESSOR_H
+#define PROCESSOR_H
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -37,3 +39,5 @@ void load_instruction (struct Processor * P, uint8_t op_code, uint8_t r1_id, uin
 void reset_pc(struct Processor * p);
 
 void print_instruction(struct Instruction * ins );
+
+#endif /*PROCESSOR_H*/
