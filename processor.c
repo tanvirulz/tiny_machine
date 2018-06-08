@@ -34,7 +34,7 @@ void fetch_instruction (struct Processor * P, struct Instruction * ins){
     (*pc)++;
     r2_id = get_byte(P->m,*pc);
     (*pc)++;
-    r1_id = (r1_id >> REG_ID_SIZE )  & LS_4_BITS; /*I always mask as a rule. I know it is redundant here.*/
+    r1_id = (r2_id >> REG_ID_SIZE )  & LS_4_BITS; /*I always mask as a rule. I know it is redundant here.*/
     r2_id = r2_id & LS_4_BITS ;
     ins->reg1_id = r1_id;
     ins->reg2_id = r2_id;

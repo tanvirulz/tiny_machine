@@ -4,6 +4,8 @@
 #include "memory.h"
 #include "registers.h"
 #include "processor.h"
+#include "unit_tests.h"
+
 int main(){
     struct Memory * m;
     struct Registers * r;
@@ -30,7 +32,7 @@ int main(){
     free_mem(m);
     free_reg(r);
 
-    
-    printf("success!\n");
-
+    if(test_processor()) {
+        printf("success!\n");
+    }
 }

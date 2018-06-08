@@ -1,7 +1,8 @@
 #sorry for this mess. Definitely need to write proper makefile.
 
-default: mem reg ttm.c 
-	gcc -o run memory.o registers.o ttm.c -I.
+default: mem reg test proc ttm.c 
+	gcc -o run memory.o registers.o unit_tests.o  processor.o ttm.c -I.
+
 test: unit_tests.c 
 	gcc -c -o unit_tests.o unit_tests.c -I.
 
