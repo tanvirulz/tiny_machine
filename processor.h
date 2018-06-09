@@ -41,11 +41,13 @@ enum opcodes {
 };
 
 enum exe_status {
-    OK = 0x00,
-    STACK_OVERFLOW = 0x01,
-    STACK_UNDERFLOW = 0x02,
-    PHALT = 0xFF
+    OK = 0,
+    STACK_OVERFLOW = 1,
+    STACK_UNDERFLOW = 2,
+    PHALT = 3,
 };
+
+
 
 struct Processor{
     struct Registers * r;
@@ -64,17 +66,21 @@ struct Instruction{
     uint16_t op_ival; 
 };
 
-struct Processor * init_processor();
+struct Processor * create_processor();
+
+
 
 
 void fetch_instruction (struct Processor * P, struct Instruction * ins);
 
-void load_instruction (struct Processor * P, uint8_t op_code, uint8_t r1_id, uint8_t r2_id, uint16_t op_ival);
 
+void load_instruction (struct Processor * P, struct Instruction * ins );
 
+void make_instruction( struct Instruction * ins, uint8_t op_code, uint8_t r1_id, uint8_t r2_id, uint16_t op_ival );
 
 void print_instruction(struct Instruction * ins );
 
 uint16_t execute(struct Processor * p, struct Instruction * ins);
 
+uint16_t run(struct Processor * p);
 #endif /*PROCESSOR_H*/

@@ -1,6 +1,6 @@
 #include "processor.h"
 
-struct Processor * init_processor(){
+struct Processor * create_processor(){
     struct Processor * p;
 
     p = (struct Processor *) malloc(sizeof(struct Processor));
@@ -46,30 +46,40 @@ void fetch_instruction (struct Processor * P, struct Instruction * ins){
     }
 }
 
+void make_instruction( struct Instruction * ins, uint8_t op_code, uint8_t r1_id, uint8_t r2_id, uint16_t op_ival ){
+    ins->op_code = op_code;
+    ins->op_ival = op_ival;
+    ins->reg1_id = r1_id;
+    ins->reg2_id = r2_id;
+}
 
-void load_instruction (struct Processor * P, uint8_t op_code, uint8_t r1_id, uint8_t r2_id, uint16_t op_ival){
+void load_instruction (struct Processor * P, struct Instruction * ins ){
     uint8_t i_bytes[4];
     uint16_t * pc;
     
     pc = P->r->reg +_pc;
 
-    i_bytes[0] = op_code;
-    i_bytes[1] = r1_id;
+    i_bytes[0] = ins->op_code;
+    i_bytes[1] = ins->reg1_id;
     i_bytes[1] <<= REG_ID_SIZE;
-    i_bytes[1] = i_bytes[1] | r2_id;
-    i_bytes[2] = op_ival & 0xFF;
-    i_bytes[3] = (op_ival >> 8) & 0xFF;
+    i_bytes[1] = i_bytes[1] | ins->reg2_id;
+    i_bytes[2] = ins->op_ival & 0xFF;
+    i_bytes[3] = (ins->op_ival >> 8) & 0xFF;
+    
     put_byte(P->m , *pc , i_bytes[0] );
+    
     (*pc)++;
     put_byte(P->m , *pc, i_bytes[1] );
     (*pc)++;
-    if (op_code & OPTIONAL_WORD_NEEDED ) {
+    
+    if (ins->op_code & OPTIONAL_WORD_NEEDED ) {
         put_byte(P->m , *pc, i_bytes[2] );
         (*pc)++;
         put_byte(P->m , *pc, i_bytes[3] );
         (*pc)++;
     }
 }
+
 
 
 /**
@@ -89,7 +99,16 @@ uint16_t * get_reg(struct Processor * p, uint16_t reg_id){
     return p->r->reg + reg_id;
 }
 
-
+uint16_t run(struct Processor * p){
+    uint16_t est;
+    struct Instruction ins;
+    do{
+        fetch_instruction(p,&ins );
+        est = execute(p,&ins );
+    }while(est == OK);
+    
+    return est;
+}
 
 
 uint16_t execute(struct Processor * p, struct Instruction * ins){
@@ -109,14 +128,15 @@ uint16_t execute(struct Processor * p, struct Instruction * ins){
         case HALT:
         
         return PHALT; /* halt!!! */
+        
         break;
         case ADD:
-
+        //printf ("%d %d\n",ins->reg1_id,ins->reg2_id);
         a = get_reg(p,ins->reg1_id);
         b = get_reg(p,ins->reg2_id);
-
+        //printf("add %d %d\n", *a,*b);
         *z = (*a + *b > 0xFFFF)?  1 : 0 ;
-        *a += *b;
+        (*a )+= (*b);
 
         break;
         case ADDI:
@@ -250,4 +270,5 @@ uint16_t execute(struct Processor * p, struct Instruction * ins){
         /*adding mul,div should be easy*/
 
     }
+    return OK;
 }

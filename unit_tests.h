@@ -4,16 +4,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <time.h>
 
 #include "processor.h"
 #include "registers.h"
 #include "memory.h"
 
-#define SUCCESS 1
-#define FAILURE 0
+#define PASS 1
+#define FAIL 0
 
 
+int load_ins_from_array(struct Processor *p, uint16_t * ins_list);
 
-int test_processor();
+int run_test_suit();
 
 #endif /*UNIT_TESTS_H*/

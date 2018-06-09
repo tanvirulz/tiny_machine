@@ -15,6 +15,7 @@ void put_byte(struct Memory * M, uint16_t dp, uint8_t byte){
     int bi , i ;
     bi = dp/MEM_BUCKET_SIZE;
     
+    
     /* If specific memory bank that contains dp'th byte is not allocated
     then the memory is allocated first.*/
     if  (M->mbl[bi] == NULL){
