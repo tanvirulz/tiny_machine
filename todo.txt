@@ -1,0 +1,7 @@
+* resolve the execution_status_translation issue
+* create debug mode printer. 
+* organize .h .c and test_suit files. 
+* write a readme
+* create a wiki?  
+* add comments and documentations
+* before first release version update resister_count
