@@ -1,9 +1,13 @@
-
-* make a stmarter Makefile
-* write a readme
+* add bin folder for executables
+* check all the commands avaiable for execute. 
+* write unit tests for the commands. 
+* plan the code, data, heap and stack segment addresses.
+* make unit test to check manually created machine code execution.
+* make a stmarter Makefile.
+* write a readme.
 * create a wiki?  
-* add comments and documentations
-* before first release version update resister_count
+* add comments and documentations.
+* before first release version update resister_count.
 
 
 DONE:
