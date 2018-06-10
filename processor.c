@@ -53,6 +53,7 @@ void make_instruction( struct Instruction * ins, uint8_t op_code, uint8_t r1_id,
     ins->op_ival = op_ival;
     ins->reg1_id = r1_id;
     ins->reg2_id = r2_id;
+    debug("makeins");
 }
 
 void load_instruction (struct Processor * P, struct Instruction * ins ){

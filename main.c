@@ -4,9 +4,11 @@
 #include "memory.h"
 #include "registers.h"
 #include "processor.h"
+#include "debug.h"
 
 #define CASE2 2
 #ifdef TEST_MODE
+    
     #include "unit_tests.h"
 #endif
 
@@ -16,9 +18,12 @@ int main(){
     #ifdef TEST_MODE
         if(run_test_suit()) {
             printf("Test Suit completed!\n");
+            
         }
     #endif
 
-    printf("pc survived!!\n");
+    debug("\t\tdebug print!!!!!");
+
+    printf("pc a" " survived!!\n");
 
 }

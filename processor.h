@@ -7,6 +7,7 @@
 
 #include "registers.h"
 #include "memory.h"
+#include "debug.h"
 
 #define LS_4_BITS 0x0F
 #define OPTIONAL_WORD_NEEDED 0x80
