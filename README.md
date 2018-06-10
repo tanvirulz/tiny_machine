@@ -20,7 +20,8 @@ For a detail architectural overview consult the github wiki (so far non-existent
 
 From the terminal navigate to the project folder.
 
-* To build the executable run: `make`
+* To build the executable run: 
+    `make`
 * To build, cleanup and run:
     `make run`
 * To build the unit test version and run:
@@ -29,6 +30,12 @@ From the terminal navigate to the project folder.
     `make dtest`
 * To cleanup:
     `make clean`
+
+The executable build for default operation is called `run`. 
+use `./run` command to execute it. 
+For the `dtest` and `test` mode compilation the created
+ executable is called `run_test`. These files can be found 
+ in the project home folder. 
 
 ## Folder structure
 
