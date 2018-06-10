@@ -7,6 +7,15 @@
 
 
 DONE:
+* resolved vscode includePath issue. 
+ 
+ -  [10/6/2018] generate a c_cpp_properties.json file by running the C/Cpp: Edit configurations... 
+    command from the Command Palette (Ctrl+Shift+P and add the missing information. 
+    update includePath so that it looks like this: 
+    "includePath": [
+                "${workspaceFolder}","./include/","./unit_tests"
+            ],
+
 * organize .h .c and test suit files.
 
  -  [10/6/2018] .h in include .c in src seperate unit_tests folder for test suits
