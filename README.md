@@ -20,18 +20,15 @@ For a detail architectural overview consult the github wiki (so far non-existent
 
 From the terminal navigate to the project folder.
 
-* To build the executable run:
-    ```
-    make
-    ```
+* To build the executable run: `make`
 * To build, cleanup and run:
-    make run
+    `make run`
 * To build the unit test version and run:
-    make test
+    `make test`
 * To build the unit test version with additional debug outputs:
-    make dtest
+    `make dtest`
 * To cleanup:
-    make clean
+    `make clean`
 
 ## Folder structure
 
