@@ -1,6 +1,6 @@
 
-* create debug mode printer. 
-* organize .h .c and test_suit files. 
+* organize .h .c and test_suit files.
+* make a stmarter Makefile
 * write a readme
 * create a wiki?  
 * add comments and documentations
@@ -9,6 +9,11 @@
 
 Resolved:
 
+* create debug mode printer. 
+ -  [10/6/2018] I had to juggle with the Makefile to add the detest and test mode printouts. 
+    Maybe, I should figure out how to give input to make commands. But then that would lose 
+    the main purpose I am using make (to be able to run/compile with shor commands). 
+
 * resolve the execution_status_translation multiple definition error during linking issue. 
 
 
@@ -16,4 +21,4 @@ Resolved:
     all assignment to it should happen from the associated .c file. 
     Otherwise when speratly compiled modules meet together which happen to include the same .h file 
     will find multiple instance of the variable and throw error. 
-    
+
