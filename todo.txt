@@ -1,5 +1,4 @@
 
-* organize .h .c and test_suit files.
 * make a stmarter Makefile
 * write a readme
 * create a wiki?  
@@ -7,15 +6,22 @@
 * before first release version update resister_count
 
 
-Resolved:
+DONE:
+* organize .h .c and test suit files.
+
+ -  [10/6/2018] .h in include .c in src seperate unit_tests folder for test suits
+
+
 
 * create debug mode printer. 
+
  -  [10/6/2018] I had to juggle with the Makefile to add the detest and test mode printouts. 
     Maybe, I should figure out how to give input to make commands. But then that would lose 
     the main purpose I am using make (to be able to run/compile with shor commands). 
 
-* resolve the execution_status_translation multiple definition error during linking issue. 
 
+
+* resolve the execution_status_translation multiple definition error during linking issue. 
 
  -  [10/6/2018] If you want a specific variable to be in an include file (.h) . Make it an 'extern' 
     all assignment to it should happen from the associated .c file. 

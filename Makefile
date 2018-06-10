@@ -1,45 +1,56 @@
-#sorry for this mess. Definitely need to write proper makefile.
+# Sorry for the super messy version of makefile (  that works for now. )
+# Definitely have to learn how to write a smarter one.
+
+CC=gcc
+IFLAGS=-I./include -I./unit_tests
+
+TDIR=./unit_tests
+SDIR=./src
+ODIR=./obj
+
 
 # nominal compile
-default: mem reg  proc main.c 
-	gcc -o run memory.o registers.o processor.o main.c -I.
+default: mkobjdir nondeb mem reg  proc $(SDIR)/main.c 
+	gcc -o run $(ODIR)/memory.o $(ODIR)/registers.o  $(ODIR)/debug.o $(ODIR)/processor.o $(SDIR)/main.c $(IFLAGS)
 
+# if not exists, create obj directory to avoid error (output directory not found)!
+mkobjdir: 
+	mkdir -p obj
 # run the testsuit *SKIP* the debug outputs
-test: nondeb utest mem reg  proc main.c 
-		gcc -D TEST_MODE  -o run_test memory.o registers.o unit_tests.o debug.o processor.o main.c -I.
-		./run_test
+test: mkobjdir nondeb utest mem reg  proc $(SDIR)/main.c 
+	gcc -D TEST_MODE  -o run_test $(ODIR)/memory.o $(ODIR)/registers.o $(ODIR)/unit_tests.o $(ODIR)/debug.o $(ODIR)/processor.o $(SDIR)/main.c $(IFLAGS)
+	./run_test
 
 # run the testsuit *PRINT* the debug outputs
-dtest: deb utest mem reg  proc main.c 
-		gcc -D TEST_MODE  -o run_test memory.o registers.o unit_tests.o debug.o processor.o main.c -I.
-		./run_test
+dtest: mkobjdir deb utest mem reg  proc $(SDIR)/main.c 
+	gcc -D TEST_MODE  -o run_test $(ODIR)/memory.o $(ODIR)/registers.o $(ODIR)/unit_tests.o $(ODIR)/debug.o $(ODIR)/processor.o $(SDIR)/main.c $(IFLAGS)
+	./run_test
 
 # compile debug that renders is senile
-nondeb: debug.c 
-	gcc -c -o debug.o debug.c -I.
-	
+nondeb: mkobjdir $(SDIR)/debug.c 
+	$(CC) -c -o $(ODIR)/debug.o $(SDIR)/debug.c $(IFLAGS)
+
 # debug that you compile when you actually need it! 
-deb: debug.c 
-	gcc -c -D DEBUG_MODE -o debug.o debug.c -I.
+deb: mkobjdir $(SDIR)/debug.c 
+	$(CC) -c -D DEBUG_MODE -o $(ODIR)/debug.o $(SDIR)/debug.c $(IFLAGS)
+ 
+utest: mkobjdir $(TDIR)/unit_tests.c 
+	$(CC) -c -o $(ODIR)/unit_tests.o $(TDIR)/unit_tests.c $(IFLAGS)
 
-utest: unit_tests.c 
-	gcc -c -o unit_tests.o unit_tests.c -I.
+mem: mkobjdir $(SDIR)/memory.c 
+	$(CC) -c -o $(ODIR)/memory.o $(SDIR)/memory.c $(IFLAGS)
 
-mem: memory.c 
-	gcc -c -o memory.o memory.c -I.
+reg: mkobjdir $(SDIR)/registers.c 
+	$(CC) -c -o $(ODIR)/registers.o $(SDIR)/registers.c $(IFLAGS)
 
-reg: registers.c 
-	gcc -c -o registers.o registers.c -I.
 
-proc: processor.c 
-	gcc -c -o processor.o processor.c -I.
+proc: mkobjdir $(SDIR)/processor.c 
+	$(CC) -c -o $(ODIR)/processor.o $(SDIR)/processor.c $(IFLAGS)
 
-# nominal run
 run: default
 	./run
-	rm -f *.o
-	
+
 clean: 
 	rm -f run
-	rm -f *.o
-	rm -f run_test 
+	rm -f $(ODIR)/*.o
+	rm -f run_test
