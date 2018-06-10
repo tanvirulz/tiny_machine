@@ -1,5 +1,7 @@
 #include "processor.h"
 
+char * exe_status_translator[]= {"OK","STACK_OVERFLOW","STACK_UNDERFLOW","PHALT"};
+
 struct Processor * create_processor(){
     struct Processor * p;
 

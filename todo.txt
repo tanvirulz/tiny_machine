@@ -1,7 +1,19 @@
-* resolve the execution_status_translation issue
+
 * create debug mode printer. 
 * organize .h .c and test_suit files. 
 * write a readme
 * create a wiki?  
 * add comments and documentations
 * before first release version update resister_count
+
+
+Resolved:
+
+* resolve the execution_status_translation multiple definition error during linking issue. 
+
+
+ -  [10/6/2018] If you want a specific variable to be in an include file (.h) . Make it an 'extern' 
+    all assignment to it should happen from the associated .c file. 
+    Otherwise when speratly compiled modules meet together which happen to include the same .h file 
+    will find multiple instance of the variable and throw error. 
+    

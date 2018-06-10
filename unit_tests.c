@@ -2,7 +2,7 @@
 
 #define MAX_TEST_INS_COUNT 512
 
-char * exe_status_translator[]= {"OK","STACK_OVERFLOW","STACK_UNDERFLOW","PHALT"};
+//char * exe_status_translator[]= {"OK","STACK_OVERFLOW","STACK_UNDERFLOW","PHALT"};
 
 char * test_status[]= {"FAIL","PASS"};
 

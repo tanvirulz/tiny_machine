@@ -47,7 +47,9 @@ enum exe_status {
     PHALT = 3,
 };
 
-
+#define NUM_EXE_STATUS 4
+//const char * exe_status_translator[]= {"OK","STACK_OVERFLOW","STACK_UNDERFLOW","PHALT"};
+char * exe_status_translator[NUM_EXE_STATUS];//[]= {"OK","STACK_OVERFLOW","STACK_UNDERFLOW","PHALT"};
 
 struct Processor{
     struct Registers * r;
