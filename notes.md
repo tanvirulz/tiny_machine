@@ -26,22 +26,23 @@ To go bak all they to the beginning:
 
 ### `printf()` string concatenation
 
-You can concatanate string literals by just placing them side by side
-inside the `printf()` function. 
+You can concatenate string literals by just placing them side by side
+inside the `printf()` function.  
 
     printf("pc a" " survived!!\n");
 
-Here `"pc a"` and `"survived!!\n"` are two different string literals. 
+Here `"pc a"` and `"survived!!\n"` are two different string literals.
 
 ## Reading
 
 ### __attributes__
-* While skimming through the linux kernel source code, I have found an
-interesting use of the attribute definitions. Will read it in details later. 
+
+* While skimming through the linux kernel source code, I have found an<br>
+interesting use of the attribute definitions. Will read it in details later.  
 https://stackoverflow.com/questions/21018778/what-does-static-int-function-acquires-releases-mean
 https://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html#Function-Attributes
 
-* format (archetype, string-index, first-to-check)
+* format (archetype, string-index, first-to-check)<br>
 The format attribute specifies that a function takes printf, scanf, strftime or strfmon style arguments that should be type-checked against a format string. For example, the declaration:
 
     extern int
@@ -52,8 +53,6 @@ causes the compiler to check the arguments in calls to my_printf for consistency
 
 * hot: The hot attribute on a function is used to inform the compiler that the function is a hot spot of the compiled program. The function is optimized more aggressively and on many targets it is placed into a special subsection of the text section so all hot functions appear close together, improving locality.
 
-* cold: Rarely used function. optimized for size rather than time efficiency. 
+* cold: Rarely used function. optimized for size rather than time efficiency.
 
 ## General
-
-
