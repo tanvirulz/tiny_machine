@@ -35,6 +35,12 @@ Here `"pc a"` and `"survived!!\n"` are two different string literals.
 
 ## Reading
 
+### __attributes__
+While skimming through the linux kernel source code, I have found an
+interesting use of the attribute definitions. Will read it in details later. 
+https://stackoverflow.com/questions/21018778/what-does-static-int-function-acquires-releases-mean
+https://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html#Function-Attributes
+
 ## General
 
 
