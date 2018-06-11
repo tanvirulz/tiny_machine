@@ -12,21 +12,29 @@ If you wan to save the content of a binary file into an array. You would
 first need to allocate memory for it. To get the size of the file in
 bytes the following c tricks would work. 
 
-```
+
     fseek(fp, 0L, SEEK_END);
     sz = ftell(fp);
-```
+
 To seek back:
 
     fseek(fp, 0L, SEEK_SET);
-    or (if seeking to go to the beginning)
 
 To go bak all they to the beginning:
 
     rewind(fp);
 
-# Reading
+### `printf()` string concatanation
 
-# General
+You can concatanate string literals by just placing them side by side
+inside the `printf()` function. 
+
+    printf("pc a" " survived!!\n");
+
+Here `"pc a"` and `"survived!!\n"` are to different string literals. 
+
+## Reading
+
+## General
 
 
