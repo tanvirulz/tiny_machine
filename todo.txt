@@ -1,4 +1,5 @@
 * add bin folder for executables + update relevant readme section.
+* debug print with format check with __attribute__ format. (see notes)
 * check all the commands avaiable for execute. 
 * write unit tests for the commands. 
 * plan the code, data, heap and stack segment addresses.
