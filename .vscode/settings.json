@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "ADDI",
+        "PHALT",
+        "PUTI",
+        "SUBI"
+    ],
+    "files.associations": {
+        "memory.h": "c"
+    }
+}

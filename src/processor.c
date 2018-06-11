@@ -18,11 +18,11 @@ struct Processor * create_processor(){
  * increment the pc by 4 if optional word is also fetched
  * this decision is made by observing the opcode.
  * @P : is the processor instance
- * @pc : is the pointer to the programm counter register
+ * @pc : is the pointer to the program counter register
  * @ins : is the pointer to a instruction container where the instruction is 
  * to be loaded. 
  * 
- * By default aftr fetching pc points to the next instruction to be fetche. 
+ * By default after fetching pc points to the next instruction to be fetched. 
  * pc can later be changed during execution of the jump or jz instructions.
  * 
  * */

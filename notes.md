@@ -8,7 +8,7 @@ reading material related to this work will be saved here.
 
 ### Binary file loading in C
 
-If you wan to save the content of a binary file into an array. You would
+If you want to save the content of a binary file into an array. You would
 first need to allocate memory for it. To get the size of the file in
 bytes the following c tricks would work. 
 
@@ -24,14 +24,14 @@ To go bak all they to the beginning:
 
     rewind(fp);
 
-### `printf()` string concatanation
+### `printf()` string concatenation
 
 You can concatanate string literals by just placing them side by side
 inside the `printf()` function. 
 
     printf("pc a" " survived!!\n");
 
-Here `"pc a"` and `"survived!!\n"` are to different string literals. 
+Here `"pc a"` and `"survived!!\n"` are two different string literals. 
 
 ## Reading
 
